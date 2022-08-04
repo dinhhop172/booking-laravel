@@ -23,7 +23,7 @@
                                 @csrf
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" @if(Cookie::has('adminmail')) value="{{ Cookie::get('adminmail') }}" @endif  id="email" placeholder="Enter email">
+                                    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" @if(Cookie::has('adminmail')) value="{{ Cookie::get('adminmail') }}" @endif  id="email" placeholder="Enter email">
                                     @error('email')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror

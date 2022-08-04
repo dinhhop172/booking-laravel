@@ -17,7 +17,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">All rooms<a href="?c=user&amp;a=create" class="float-right btn btn-primary">Add new room</a></h4>
+                <h4 class="card-title">All rooms<a href="{{ route('admin.rooms.create') }}" class="float-right btn btn-primary">Add new room</a></h4>
                 <div class="table-responsive">
                     <table class="table mb-0">
                         <thead>
@@ -40,8 +40,8 @@
                                 <td>{{ $item->price }}</td>
                                 <td>{{ ($item->status == 1) ? 'Empty room' : 'Room booked' }}</td>
                                 <td>
-                                <a href="" class="btn btn-info waves-effect waves-light"><i class="mdi mdi-circle-edit-outline"></i></a>
-                                <a onclick="return confirm('Bạn chắc chắn muốn xóa?')" href="" class="btn btn-danger waves-effect waves-light"><i class="mdi mdi-delete"></i></a>
+                                <a href="{{ route('admin.rooms.edit') }}" class="btn btn-info waves-effect waves-light"><i class="mdi mdi-circle-edit-outline"></i></a>
+                                <a onclick="return confirm('Bạn chắc chắn muốn xóa?')" href="{{ route('admin.rooms.destroy') }}" class="btn btn-danger waves-effect waves-light"><i class="mdi mdi-delete"></i></a>
                                 </td>
                             </tr>
                             @empty

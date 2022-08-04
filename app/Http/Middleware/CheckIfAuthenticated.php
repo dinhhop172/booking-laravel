@@ -21,9 +21,8 @@ class CheckIfAuthenticated
             if(Auth::guard('account')->user()->roles == 'admin' || Auth::guard('account')->user()->roles == 'staff'){
                 return redirect()->route('admin.dashboards.index');
             }
-            return $next($request);
+            return redirect('/');
         }
         return $next($request);
-        
     }
 }

@@ -33,14 +33,16 @@
                         <li><a href="{{ route('admin.rooms.index') }}">Room</a></li>
                     </ul>
                 </li>
-
+                
+                @if (auth()->guard('account')->user()->roles == 'admin')
                 <li>
                     <a href="{{ route('admin.permissions.index') }}" class=" waves-effect">
                         <i class="mdi mdi-calendar-check"></i>
                         <span>Permission</span>
                     </a>
                 </li>
-
+                @endif
+               
                 <li class="menu-title">Extras</li>
 
                 <li>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAccountPermissionsTable extends Migration
+class CreateAccountPermissionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateAccountPermissionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('account_permissions', function (Blueprint $table) {
+        Schema::create('account_permission', function (Blueprint $table) {
             $table->foreignId('account_id')->constrained()->nullable();
             $table->foreignId('permission_id')->constrained()->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
+            $table->primary(['account_id', 'permission_id']);
         });
     }
 
@@ -27,6 +29,10 @@ class CreateAccountPermissionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('account_permissions');
+        Schema::dropIfExists('account_permission');
+        // Schema::dropForeign('account_permission_account_id_foreign');
+        // Schema::dropColumn('account_id');
+        // Schema::dropForeign('account_permission_permission_id_foreign');
+        // Schema::dropColumn('permission_id');
     }
 }

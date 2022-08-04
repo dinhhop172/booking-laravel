@@ -30,4 +30,19 @@ class Account extends Authenticatable
         return $this->belongsToMany(Permission::class);
     }
 
+    public function hasPermissions($namePermission)
+    {
+        foreach(auth()->guard('account')->user()->permissions as $permission){
+            if($permission->name == $namePermission){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function asd(){
+        return 'asd';
+    }
+    
+
 }

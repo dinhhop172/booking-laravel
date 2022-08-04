@@ -25,7 +25,7 @@
                                 <th>#</th>
                                 <th>Username</th>
                                 <th>Phone number</th>
-                                <th>User/Staff</th>
+                                <th>Role</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -40,15 +40,15 @@
                                 <td>{{ $item->phone }}</td>
                                 <td>{{ ($item->roles == 'staff') ? 'staff' : '' }}</td>
                                 <td>
-                                <a href="" class="btn btn-info waves-effect waves-light"><i class="mdi mdi-circle-edit-outline"></i></a>
+                                <a href="{{ route('admin.permissions.edit', $item->id) }}" class="btn btn-info waves-effect waves-light"><i class="mdi mdi-circle-edit-outline"></i></a>
                                 {{-- <a onclick="return confirm('Bạn chắc chắn muốn xóa?')" href="" class="btn btn-danger waves-effect waves-light"><i class="mdi mdi-delete"></i></a> --}}
                                 </td>
                             </tr>
                             @empty
-                                
+                                <td>No data</td>
                             @endforelse
                             
-                        </tbody>                                                                         </tbody>
+                        </tbody>
                     </table>
                 </div>
             </div>

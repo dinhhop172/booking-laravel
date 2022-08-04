@@ -22,11 +22,12 @@ class CheckLogin
         // }
         // return redirect()->route('auth.login');
         if(Auth::guard('account')->check()) {
-            if(Auth::guard('account')->user()->roles == 'admin'){
+            if((Auth::guard('account')->user()->roles == 'admin' && Auth::guard('account')->user()->email_verified_at != null) || Auth::guard('account')->user()->roles == 'staff'){
                 return $next($request);
             }
-            return redirect('auth/login');
+            return redirect('auth/verify-admin');
         }
+        return redirect('auth/verify-admin');
         
     }
 }

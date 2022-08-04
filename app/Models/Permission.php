@@ -11,10 +11,20 @@ class Permission extends Model
 
     protected $table = 'permissions';
 
-    protected $fillable = ['name'];
+    protected $fillable = ['route_name', 'title'];
     
     public function accounts()
     {
         return $this->belongsToMany(Account::class);
+    }
+
+    public function scopeWithNameBooking($query)
+    {
+        return $query->where('title', 'like', '%booking%');
+    }
+
+    public function scopeWithNameRoom($query)
+    {
+        return $query->where('title', 'like', '%room%');
     }
 }

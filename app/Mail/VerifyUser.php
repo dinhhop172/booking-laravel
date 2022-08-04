@@ -7,20 +7,20 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class VerifyAdmin extends Mailable
+class VerifyUser extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $details;
+    public $user;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($details)
+    public function __construct($user)
     {
-        $this->details = $details;
+        $this->user = $user;
     }
 
     /**
@@ -30,6 +30,6 @@ class VerifyAdmin extends Mailable
      */
     public function build()
     {
-        return $this->view('auth.verify_admin');
+        return $this->view('auth.verify_user');
     }
 }
