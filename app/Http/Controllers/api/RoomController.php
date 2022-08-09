@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\RoomResource;
 use App\Models\Room;
 use Illuminate\Http\Request;
 
@@ -90,4 +91,43 @@ class RoomController extends Controller
         $room->delete();
         return response()->json($room);
     }
+
+    public function test($id)
+    {
+        $room = Room::where('id', $id)->first();
+        // return (RoomResource::collection($room));
+        return (new RoomResource($room));
+    }
+    
+    // {
+    //     "data": {
+    //         "id": 1,
+    //         "name": "Room 1",
+    //         "price": 1000,
+    //         "status": 1
+    //     }
+    // }
+
+    // {
+    //     "data": [
+    //         {
+    //             "id": 1,
+    //             "name": "Room 1",
+    //             "price": 1000,
+    //             "status": 1
+    //         },
+    //         {
+    //             "id": 2,
+    //             "name": "Room 2",
+    //             "price": 2000,
+    //             "status": 1
+    //         },
+    //         {
+    //             "id": 3,
+    //             "name": "Room 3",
+    //             "price": 1000,
+    //             "status": 1
+    //         }
+    //     ]
+    // }
 }

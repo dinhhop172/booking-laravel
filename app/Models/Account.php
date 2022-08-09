@@ -13,7 +13,7 @@ class Account extends Authenticatable
 
     protected $table = 'accounts';
 
-    protected $fillable = ['username', 'password', 'email', 'phone', 'gender', 'address', 'address', 'roles', 'verification_code', 'email_verified_at', 'staff_id', 'percent', 'money', 'status'];
+    protected $fillable = ['username', 'password', 'email', 'phone', 'gender', 'address', 'address', 'roles', 'verification_code', 'email_verified_at', 'staff_id', 'percent', 'money', 'status', 'facebook_id'];
 
     public function bookings()
     {

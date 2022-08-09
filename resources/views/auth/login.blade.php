@@ -63,6 +63,10 @@
                 <div class="mt-5 text-center">
                     <p>Don't have an account ? <a href="{{ route('auth.register') }}" class="text-primary"> Signup Now </a></p>
                     <p>© 2018 - 2020 Lexa. Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand</p>
+                    <a href="{{ route('facebook.login') }}" class="btn btn-facebook btn-user btn-block">
+                        <i class="fab fa-facebook-f fa-fw"></i>
+                        Login with Facebook
+                     </a>
                 </div>
             </div>
         </div>

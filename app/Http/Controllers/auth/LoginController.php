@@ -73,11 +73,14 @@ class LoginController extends Controller
     public function logout()
     {
         if(Auth::guard('account')->check()){
-            $infoAccount = Auth::guard('account')->user();
-            if($infoAccount->email_verified_at != null){
-                $infoAccount->email_verified_at = null;
-                $infoAccount->save();
+            if(Auth::guard('account')->user()->roles == 'admin'){
+                $infoAccount = Auth::guard('account')->user();
+                if($infoAccount->email_verified_at != null){
+                    $infoAccount->email_verified_at = null;
+                    $infoAccount->save();
+                }
             }
+            
         }
         Auth::guard('account')->logout();
 

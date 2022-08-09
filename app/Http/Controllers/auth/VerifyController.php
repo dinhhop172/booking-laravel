@@ -42,12 +42,17 @@ class VerifyController extends Controller
         }else{
             return redirect('/')->with('error', 'Xac thuc khong thanh cong');
         }
-
     }
 
     public function test(Account $account, $token)
     {
         dd($account, $token);
+    }
+
+    public function testa()
+    {
+        $account = Account::with('bookings')->find(2);
+        dd($account->permissions);
     }
 
 }

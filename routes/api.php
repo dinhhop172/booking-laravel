@@ -19,6 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::apiResource('rooms', RoomController::class);
+Route::get('test/{id}', [RoomController::class, 'test']);
 // Route::post('rooms', [RoomController::class, 'store']);
 // Route::get('room/{id}', [RoomController::class, 'show']);
 // Route::put('room/{id}', [RoomController::class, 'update']);

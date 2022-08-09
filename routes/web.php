@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\BookingController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\admin\PermissionController;
 use App\Http\Controllers\Admin\RoomController;
+use App\Http\Controllers\auth\FaceBookController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\auth\VerifyController;
@@ -71,7 +72,7 @@ Route::group(['prefix' => 'auth', 'as'=>'auth.'], function () {
     Route::get('login', [LoginController::class, 'index'])->name('login')->middleware('checkifauthenticated');
     Route::post('login', [LoginController::class, 'subLogin'])->name('sublogin');
     
-    Route::get('verify-admin', [VerifyController::class, 'index'])->name('view-verify-admin');
+    Route::get('verify-admin', [VerifyController::class, 'index'])->name('view-verify-admin')->middleware('checkverify');
     Route::post('verify-admin', [VerifyController::class, 'verify_admin'])->name('verify-admin');
 
     Route::get('register', [RegisterController::class, 'index'])->name('register')->middleware('checkifauthenticated');
@@ -83,3 +84,13 @@ Route::group(['prefix' => 'auth', 'as'=>'auth.'], function () {
 
 Route::get('actived-user/{account}/{token}', [VerifyController::class, 'verify_user'])->name('actived-user');
 Route::get('test/{account}/{token}', [VerifyController::class, 'test'])->name('test-user');
+
+// Route::get('/redirect/{social}', [FacebookController::class, 'redirect'])->name('facebook.redirect');
+// Route::get('/callback/{social}', [FacebookController::class, 'callback']);
+
+Route::prefix('facebook')->name('facebook.')->group( function(){
+    Route::get('auth', [FaceBookController::class, 'loginUsingFacebook'])->name('login');
+    Route::get('callback', [FaceBookController::class, 'callbackFromFacebook'])->name('callback');
+});
+
+Route::get('testa', [VerifyController::class, 'testa']);

@@ -34,7 +34,7 @@
                                 $i = 1;
                             @endphp
                             @forelse ($staffs as $item)
-                            <tr>                                                                            <tr>
+                            <tr>
                                 <td>{{ $i++ }}</td>
                                 <td>{{ $item->username }}</td>
                                 <td>{{ $item->phone }}</td>
