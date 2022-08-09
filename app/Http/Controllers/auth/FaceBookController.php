@@ -19,23 +19,23 @@ class FaceBookController extends Controller
 
     public function callbackFromFacebook()
     {
-        // try {
+        try {
             $user = Socialite::driver('facebook')->user();
 
-            dd($user);
-            // $saveUser = Account::updateOrCreate([
-            //     'facebook_id' => $user->getId(),
-            // ],[
-            //     'name' => $user->getName(),
-            //     'email' => $user->getEmail(),
-            //     'password' => Hash::make($user->getName().'@'.$user->getId())
-            //         ]);
+            // dd($user);
+            $saveUser = Account::updateOrCreate([
+                'facebook_id' => $user->getId(),
+            ],[
+                'name' => $user->getName(),
+                'email' => $user->getEmail(),
+                'password' => Hash::make($user->getName().'@'.$user->getId())
+                    ]);
 
-            // Auth::loginUsingId($saveUser->id);
+            Auth::guard('account')->loginUsingId($saveUser->id);
 
-            // return redirect()->route('/');
-        // } catch (\Throwable $th) {
-        //     throw $th;
-        // }
+            return redirect()->route('/');
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 }
