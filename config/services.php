@@ -30,16 +30,16 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
-    'facebook' => [
-        'client_id' => '427025459394437', //USE FROM FACEBOOK DEVELOPER ACCOUNT
-        'client_secret' => '26f31ac6722890d66dac718052001e11', //USE FROM FACEBOOK DEVELOPER ACCOUNT
-        'redirect' => 'http://laravel-training.test/facebook/callback/'
-    ],
-
     // 'facebook' => [
-    //     'client_id' => env('FACEBOOK_APP_ID'),
-    //     'client_secret' => env('FACEBOOK_APP_SECRET'),
-    //     'redirect' => env('FACEBOOK_APP_CALLBACK_URL'),
-    // ]
+    //     'client_id' => '427025459394437', //USE FROM FACEBOOK DEVELOPER ACCOUNT
+    //     'client_secret' => '26f31ac6722890d66dac718052001e11', //USE FROM FACEBOOK DEVELOPER ACCOUNT
+    //     'redirect' => 'https://keiradom.herokuapp.com/facebook/callback/'
+    // ],
+
+    'facebook' => [
+        'client_id' => env('FACEBOOK_APP_ID'),
+        'client_secret' => env('FACEBOOK_APP_SECRET'),
+        'redirect' => env('FACEBOOK_APP_CALLBACK_URL'),
+    ]
 
 ];
