@@ -22,7 +22,7 @@ class FaceBookController extends Controller
         try {
             $user = Socialite::driver('facebook')->user();
 
-            dd($user);
+            // dd($user);
             $saveUser = Account::updateOrCreate([
                 'facebook_id' => $user->getId(),
             ],[
