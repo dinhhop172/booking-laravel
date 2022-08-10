@@ -18,9 +18,9 @@ class CreateAccountsTable extends Migration
             $table->string('username');
             $table->string('password');
             $table->string('email');
-            $table->string('phone');
-            $table->string('gender');
-            $table->string('address');
+            $table->string('phone')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('address')->nullable();
             $table->enum('roles', ['admin', 'staff', 'user']);
             $table->tinyInteger('staff_id')->nullable();
             $table->tinyInteger('percent')->nullable();
