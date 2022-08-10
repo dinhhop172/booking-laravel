@@ -61,12 +61,17 @@
                     </div>
                 </div>
                 <div class="mt-5 text-center">
-                    <p>Don't have an account ? <a href="{{ route('auth.register') }}" class="text-primary"> Signup Now </a></p>
-                    <p>© 2018 - 2020 Lexa. Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand</p>
-                    <a href="{{ route('facebook.login') }}" class="btn btn-facebook btn-user btn-block">
+                    <a href="{{ route('facebook.login') }}" class="btn btn-primary btn-user btn-block">
                         <i class="fab fa-facebook-f fa-fw"></i>
                         Login with Facebook
                      </a>
+
+                     <a href="{{ route('google.login') }}" class="btn btn-danger btn-user btn-block">
+                        <i class="fab fa-google-f fa-fw"></i>
+                        <strong>G</strong> Login with Google <strong>G</strong>
+                     </a>
+                    <p>Don't have an account ? <a href="{{ route('auth.register') }}" class="text-primary"> Signup Now </a></p>
+                    <p>© 2018 - 2020 Lexa. Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand</p>
                 </div>
             </div>
         </div>

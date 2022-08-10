@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\admin\PermissionController;
 use App\Http\Controllers\Admin\RoomController;
 use App\Http\Controllers\auth\FaceBookController;
+use App\Http\Controllers\auth\GoogleController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\auth\VerifyController;
@@ -91,6 +92,10 @@ Route::get('test/{account}/{token}', [VerifyController::class, 'test'])->name('t
 Route::prefix('facebook')->name('facebook.')->group( function(){
     Route::get('auth', [FaceBookController::class, 'loginUsingFacebook'])->name('login');
     Route::get('callback', [FaceBookController::class, 'callbackFromFacebook'])->name('callback');
+});
+Route::prefix('google')->name('google.')->group( function(){
+    Route::get('login', [GoogleController::class, 'loginUsingGoogle'])->name('login');
+    Route::get('callback', [GoogleController::class, 'callbackFromGoogle'])->name('callback');
 });
 
 Route::get('testa', [VerifyController::class, 'testa']);
