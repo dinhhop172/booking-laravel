@@ -34,7 +34,7 @@ class FaceBookController extends Controller
 
             Auth::guard('account')->login($saveUser);
 
-            return redirect()->route('/');
+            return redirect('/');
         } catch (\Throwable $th) {
             throw $th;
         }
