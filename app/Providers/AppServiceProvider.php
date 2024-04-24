@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Repositories\Room\RoomRepository;
+use App\Repositories\Room\RoomRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +15,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(
+            RoomRepositoryInterface::class,
+            RoomRepository::class
+        );
+
+        $this->app->when('App\User')
+                ->needs('$id')
+                ->give(1);
     }
 
     /**

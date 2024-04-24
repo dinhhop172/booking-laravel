@@ -20,7 +20,7 @@ class VerifyController extends Controller
         $code = $request->verification_code;
 
         if($infoAccount->verification_code == $code){
-            $infoAccount->verification_code = null;
+            // $infoAccount->verification_code = null;
             $infoAccount->email_verified_at = date('Y-m-d H:i:s');
             $infoAccount->save();
             return redirect()->route('admin.dashboards.index');

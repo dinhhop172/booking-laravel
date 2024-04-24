@@ -11,14 +11,11 @@ class TestMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    /**
-     * Create a new message instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public $detail;
+
+    public function __construct($detail)
     {
-        //
+        $this->detail = $detail;
     }
 
     /**
@@ -28,6 +25,6 @@ class TestMail extends Mailable
      */
     public function build()
     {
-        return $this->view('auth.verify_admin');
+        return $this->view('mails.test');
     }
 }

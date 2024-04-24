@@ -11,6 +11,11 @@ class Account extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    public function __construct($id)
+    {
+        echo $id;
+    }
+
     protected $table = 'accounts';
 
     protected $fillable = ['username', 'password', 'email', 'phone', 'gender', 'address', 'address', 'roles', 'verification_code', 'email_verified_at', 'staff_id', 'percent', 'money', 'status', 'facebook_id', 'google_id', 'remember_token'];

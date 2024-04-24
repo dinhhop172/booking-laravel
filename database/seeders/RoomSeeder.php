@@ -14,28 +14,16 @@ class RoomSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('rooms')->insert([
-            [
-                'name' => 'Room 1',
-                'price' => '1000',
-                'status' => '1',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'name' => 'Room 2',
-                'price' => '2000',
-                'status' => '1',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'name' => 'Room 3',
-                'price' => '1000',
-                'status' => '1',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-        ]);
+        for($i = 0;$i < 10; $i++){
+            DB::table('rooms')->insert([
+                [
+                    'name' => 'Room '.$i,
+                    'price' => '1'.$i.'00',
+                    'status' => '1',
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ]
+            ]);
+        }
     }
 }

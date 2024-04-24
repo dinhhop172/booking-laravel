@@ -10,7 +10,10 @@ use App\Http\Controllers\auth\GoogleController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\auth\VerifyController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\MypageController;
+use App\Models\Room;
+use App\Repositories\Room\RoomRepositoryInterface;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -99,3 +102,25 @@ Route::prefix('google')->name('google.')->group( function(){
 });
 
 Route::get('testa', [VerifyController::class, 'testa']);
+
+Route::get('test-room', [MypageController::class, 'showAllRoom'])->name('repository.room.index');
+Route::get('test-room/create', [MypageController::class, 'create'])->name('repository.room.create');
+Route::post('test-room/store', [MypageController::class, 'store'])->name('repository.room.store');
+Route::get('test-room/{id}/edit', [MypageController::class, 'edit'])->name('repository.room.edit');
+Route::post('test-room/{id}/update', [MypageController::class, 'update'])->name('repository.room.update');
+Route::get('test-room/{id}/delete', [MypageController::class, 'delete'])->name('repository.room.delete');
+
+Route::get('test-roomss-view', [MypageController::class, 'inputAdsView'])->name('input.ads');
+Route::get('test-roomss', [MypageController::class, 'inputAds'])->name('input.ads');
+
+Route::get('/test', [MailController::class, 'test']);
+
+// Route::get('/asd', function () {
+//     dd(config('test.xin'));
+// });
+// Route::get('/', function () {
+//     app()->make('App\User'); // Dòng code để kiểm chứng việc đã bind thành công 
+// });
+Route::get('asd', function(){
+    dd(request()->all());
+});
